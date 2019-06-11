@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Our apps scripts and styles -->
+    <link rel="stylesheet" href="/app/app.css">
+    <title>Memsource Interview Application - Configuration</title>
+
+    <script src="/assets/vuejs/vue.min.js"></script>
+
+</head>
+
+<body>
+
+<div id="projectApp" class="ml-3">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Status</th>
+            <th scope="col">Source language</th>
+            <th scope="col">Target languages</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="(project, index) in projects">
+            <th scope="row">{{ index + 1}}</th>
+            <td>{{ project.name }}</td>
+            <td>{{ project.status }}</td>
+            <td>{{ project.sourceLanguage }}</td>
+            <td><span class="ml-2" v-for="targetLanguage in project.targetLanguages">{{ targetLanguage}}</span></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- this assure that vue app initialization script sees page's elements -->
+<script src="/app/project.js"></script>
+
+</body>
+
+</html>

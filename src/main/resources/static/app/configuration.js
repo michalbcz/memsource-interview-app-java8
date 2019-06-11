@@ -12,10 +12,10 @@ var app = new Vue({
         }
     },
     mounted() {
-        this.fetchConfiguration();
+        this.fetchProjects();
     },
     methods: {
-        fetchConfiguration() {
+        fetchProjects() {
             return fetch(MEMSOURCE_CONFIGURATION_ENDPOINT)
                 .then(response => {
                     return response.json();
