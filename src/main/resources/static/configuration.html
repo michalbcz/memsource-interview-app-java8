@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Our apps scripts and styles -->
+    <link rel="stylesheet" href="/app/app.css">
+    <title>Memsource Interview Application - Configuration</title>
+
+    <script src="https://unpkg.com/vue"></script>
+
+</head>
+
+<body>
+
+<div id="configurationApp" class="ml-3">
+    <h1>Configuration</h1>
+    <form>
+        <div class="form-group col-3">
+            <label for="inputUsername">Username</label>
+            <input id="inputUsername" v-model.trim="configuration.username" type="text" class="form-control" aria-describedby="usernameHelp" placeholder="Enter username">
+            <small id="usernameHelp" class="form-text text-muted">Memsource account username for API authentication</small>
+        </div>
+        <div class="form-group col-3">
+            <label for="inputPassword">Password</label>
+            <input id="inputPassword" v-model.trim="configuration.password" type="password" class="form-control" placeholder="Password" aria-describedby="passwordHelp">
+            <small id="passwordHelp" class="form-text text-muted">Memsource account password for API authentication</small>
+        </div>
+
+        <div v-if="showSaved" class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Configuration changes succesfully saved!</strong>
+            <button type="button" v-on:click="dismissSavedMessage" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <!-- TODO michalbcz : add support for (validation) errors -->
+
+        <button type="submit" v-on:click="saveConfiguration" class="btn btn-primary col-3">Save</button>
+
+    </form>
+</div>
+
+<!-- this assure that vue app initialization script sees page's elements -->
+<script src="/app/configuration.js"></script>
+
+</body>
+
+</html>
